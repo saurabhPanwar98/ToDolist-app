@@ -3,10 +3,12 @@ const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const mongoose = require("mongoose");
 const _ = require("lodash");
+require("dotenv").config();
 
 const app = express();
+const uri = process.env.MONGO_DB_URL;
 
-mongoose.connect("mongodb+srv://admin-arav:test123@clustergettingstarted.xrrscl1.mongodb.net/todolistDB");
+mongoose.connect(uri);
 mongoose.set('strictQuery', false);
 
 const itemSchema = {
